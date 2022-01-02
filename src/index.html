@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API Demo - Citation.js</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./app.js" defer></script>
+</head>
+
+<body>
+    <h1>ris2citation</h1>
+    <h2>Input RIS</h2>
+    <textarea id="ris" spellcheck="false" rows="20" wrap="off"></textarea>
+    <h2>Select style</h2>
+    <select id="citation-style">
+        <option value="apa">APA</option>
+        <option value="vancouver">Vancouver</option>
+        <option value="gost">ГОСТ</option>
+        <option value="bibtex">BibTex</option>
+    </select>
+    <button id="getcitation">Submit</button>
+    <h2>Result</h2>
+    <p id="citation"></p>
+</body>
+
+</html>
