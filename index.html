@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <title>toCitation</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convert BibTex, BibLaTex, CSL JSON, DOI, RIS to citation">
   <link rel="stylesheet" type="text/css" href="./style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
   <link rel="manifest" href="./favicon/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="./favicon/favicon.ico">
 </head>
 
 <body>
   <h1>toCitation</h1>
-  <label for="textarea">
+  <label for="citation-from">
     <h2>Input</h2>
     <p>BibTex | BibLaTex | CSL JSON | RIS | DOI</p>
   </label>
 
   <textarea id="citation-from" spellcheck="false" rows="16" wrap="off"></textarea>
-  <label for="select">
+  <label for="citation-style">
     <h2>Style</h2>
   </label>
   <select id="citation-style">
