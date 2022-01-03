@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>toCitation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+</head>
+
+<body>
+  <h1>toCitation</h1>
+  <label for="textarea">
+    <h2>Input</h2>
+    <p>BibTex | BibLaTex | CSL JSON | RIS | DOI</p>
+  </label>
+
+  <textarea id="citation-from" spellcheck="false" rows="16" wrap="off"></textarea>
+  <label for="select">
+    <h2>Style</h2>
+  </label>
+  <select id="citation-style">
+    <option value="gost">ГОСТ</option>
+    <option value="apa">APA</option>
+    <option value="vancouver">Vancouver</option>
+    <option value="harvard1">Harvard</option>
+    <option value="bibtex">BibTex</option>
+    <option value="data">CSL JSON</option>
+  </select>
+  <button id="citation-make">Submit</button>
+  <h2>Result</h2>
+  <p id="citation-result"></p>
+  <button id="citation-copy">Copy</button>
+  <hr>
+  <footer>
+    <a href="https://github.com/gtitov/tocitation">Github</a>
+    <br>
+    Powered by <a href="https://citation.js.org/">Citation.js</a>
+  </footer>
+  <script src="./citation.min.js" type="text/javascript"></script>
+  <script src="./custom-styles.js">/* import csl style: const gost */</script>
+  <script>
+    const Cite = require('citation-js')
+    const config = Cite.plugins.config.get('@csl')
+    config.templates.add("gost", gost)
+
+    const cite = new Cite()
+
+    const makeCitation = function () {
+      const citationFrom = document.getElementById("citation-from").value
+      const citationStyle = document.getElementById("citation-style").value
+      const citeObject = cite.set(citationFrom)
+      const citationResult = document.getElementById("citation-result")
+      if (citationStyle == "bibtex" | citationStyle == "data") {
+        citationResult.innerText = citeObject.format(citationStyle)
+      } else {
+        citationResult.innerText = citeObject.format("bibliography", { template: citationStyle })
+      }
+    }
+
+    const buttonMake = document.getElementById("citation-make")
+    buttonMake.addEventListener("click", makeCitation)
+
+
+    const copyCitation = function() {
+      const citationResult = document.getElementById("citation-result")
+      navigator.clipboard.writeText(citationResult.innerText)
+    }
+    const buttonCopy = document.getElementById("citation-copy")
+    buttonCopy.addEventListener("click", copyCitation)
+  </script>
+</body>
+
+</html>

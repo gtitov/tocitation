@@ -1,4 +1,4 @@
-export const gost = `<?xml version="1.0" encoding="utf-8"?>
+const gost = `<?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="ru-RU">
   <info>
     <title>Russian GOST R 7.0.5-2008 (Ру́сский)</title>
