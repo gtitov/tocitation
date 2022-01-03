@@ -3,10 +3,6 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  font-size: 3rem;
-}
-
 textarea {
   width: 100%;
   overflow-x: auto;

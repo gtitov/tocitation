@@ -1,21 +1,25 @@
-import Cite from 'citation-js'
+import { Cite, plugins } from '@citation-js/core'
+import bibtex from '@citation-js/plugin-bibtex'
+import ris from '@citation-js/plugin-ris'
+import csl from '@citation-js/plugin-csl'
 import { gost } from './custom-styles'
-let config = Cite.plugins.config.get('@csl')
+let config = plugins.config.get('@csl')
 config.templates.add("gost", gost)
+
 var cite = new Cite()
 
 
-ris2citation = function() {
-    var ris = document.getElementById("ris").value
+getCitation = function () {
+    var citationFrom = document.getElementById("citation-from").value
     var citationStyle = document.getElementById("citation-style").value
-    let citeObject = cite.set(ris)
+    let citeObject = cite.set(citationFrom)
+    console.log(citeObject.format("bibtex"))
     var citation = citationStyle == "bibtex" ? citeObject.format("bibtex") : citeObject.format("bibliography", {template: citationStyle})
-    document.getElementById("citation").innerText = citation
+    document.getElementById("citation-result").innerText = citation
 }
 
-var button = document.getElementById("getcitation")
-button.addEventListener("click", ris2citation)
+var button = document.getElementById("citation-make")
+button.addEventListener("click", getCitation)
 
 
 
-  

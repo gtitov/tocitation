@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>API Demo - Citation.js</title>
+    <title>2citation</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -10,19 +10,26 @@
 </head>
 
 <body>
-    <h1>ris2citation</h1>
-    <h2>Input RIS</h2>
-    <textarea id="ris" spellcheck="false" rows="20" wrap="off"></textarea>
-    <h2>Select style</h2>
+    <h1>2citation</h1>
+    <label for="textarea"><h2>Input</h2><p>BibTex | BibLaTex | CSL JSON | RIS</p></label>
+    
+    <textarea id="citation-from" spellcheck="false" rows="16" wrap="off"></textarea>
+    <label for="select"><h2>Select style</h2></label>
     <select id="citation-style">
+        <option value="gost">ГОСТ</option>
         <option value="apa">APA</option>
         <option value="vancouver">Vancouver</option>
-        <option value="gost">ГОСТ</option>
         <option value="bibtex">BibTex</option>
     </select>
-    <button id="getcitation">Submit</button>
+    <button id="citation-make">Submit</button>
     <h2>Result</h2>
-    <p id="citation"></p>
+    <p id="citation-result"></p>
+    <hr>
+    <footer>
+        <a href="https://git.com">Github</a>
+        <br>
+        Powered by <a href="https://citation.js.org/">Citation.js</a>
+    </footer>
 </body>
 
 </html>
